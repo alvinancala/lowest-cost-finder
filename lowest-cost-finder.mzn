@@ -38,11 +38,11 @@ n = ["Universitas Negeri Gunaguna","Universitas Jalanjalan","Institut Teknik Jaw
 dd = 
 %nam,acc,cat,dist,prc,fare
 [| 1, 3, 2, 3000, 6000, 5       %Universitas Negeri Gunaguna
-|  2, 2, 1, 5000, 5000, 10      %Universitas Jalanjalan
+|  2, 2, 1, 5000, 5000, 10      %Universitas Jalan jalan
 |  3, 1, 1, 10000, 9000, 30     %Institut Teknik Jawa
 |  4, 2, 2, 7000, 10000, 15      %Universitas Negeri Swasta
 |  5, 3, 1, 2000, 3000, 5       %Universitas Sekitaran Sini
-|  6, 3, 1, 22000, 7000, 30 |]; %Universitas Jarakjauh
+|  6, 3, 1, 22000, 7000, 30 |]; %Universitas Jarak jauh
 
 cat = 1;
 min_acc = 3;
