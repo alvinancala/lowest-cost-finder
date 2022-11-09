@@ -3,8 +3,8 @@ include "table.mzn";
 int: min_acc;%akreditas (a=1,b=2,...)
 int: cat;%swasta=1 / negeri=2
 int: max_distance;%jarak (m)
-int: max_price;%batas biaya persemester
-int: max_fare;%batas ongkos perhari
+int: max_price;%batas biaya persemester (k)
+int: max_fare;%batas ongkos perhari (k)
 
 set of UNIVERSITY: unis;
 set of int: FEATURES = 1..6;
