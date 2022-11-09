@@ -37,16 +37,16 @@ nu = 6;
 n = ["Universitas Negeri Gunaguna","Universitas Jalanjalan","Institut Teknik Jawa","Universitas Negeri Swasta","Universitas Sekitaran Sini","Universitas Jarakjauh"];
 dd = 
 %nam,acc,cat,dist,prc,fare
-[| 1, C, 2, 3000, 6000, 5       %Universitas Negeri Gunaguna
-|  2, B, 1, 5000, 5000, 10      %Universitas Jalanjalan
-|  3, A, 1, 10000, 9000, 30     %Institut Teknik Jawa
-|  4, B, 2, 7000, 10000, 15      %Universitas Negeri Swasta
-|  5, C, 1, 2000, 3000, 5       %Universitas Sekitaran Sini
-|  6, C, 1, 22000, 7000, 30 |]; %Universitas Jarakjauh
+[| 1, 3, 2, 3000, 6000, 5       %Universitas Negeri Gunaguna
+|  2, 2, 1, 5000, 5000, 10      %Universitas Jalanjalan
+|  3, 1, 1, 10000, 9000, 30     %Institut Teknik Jawa
+|  4, 2, 2, 7000, 10000, 15      %Universitas Negeri Swasta
+|  5, 3, 1, 2000, 3000, 5       %Universitas Sekitaran Sini
+|  6, 3, 1, 22000, 7000, 30 |]; %Universitas Jarakjauh
 
 cat = 1;
-min_acc = 2;
-max_distance = 8000;
-max_price = 9000;
-max_fare = 10;
+min_acc = 3;
+max_distance = 10000;
+max_price = 10000;
+max_fare = 50;
 unis = {1,2,3,4,5,6};
