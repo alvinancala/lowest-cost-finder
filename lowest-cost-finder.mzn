@@ -34,15 +34,15 @@ output ["University with the lowest cost that fit with your criteria is ",n[fix(
 
 %input
 nu = 6;
-n = ["k1","k2","k3","k4","k5","k6"];
+n = ["Universitas Negeri Gunaguna","Universitas Jalanjalan","Institut Teknik Jawa","Universitas Negeri Swasta","Universitas Sekitaran Sini","Universitas Jarakjauh"];
 dd = 
 %nam,acc,cat,dist,prc,fare
-[| 1, 1, 1, 5000, 9000, 10      %k1
-|  2, 2, 1, 8000, 9000, 12      %k2
-|  3, 1, 1, 6000, 9000, 10      %k3
-|  4, 1, 2, 4600, 9000, 8       %k4
-|  5, 1, 1, 7000, 9000, 8       %k5
-|  6, 1, 1, 6800, 9000, 10 |];  %k6
+[| 1, C, 2, 3000, 6000, 5       %Universitas Negeri Gunaguna
+|  2, B, 1, 5000, 5000, 10      %Universitas Jalanjalan
+|  3, A, 1, 10000, 9000, 30     %Institut Teknik Jawa
+|  4, B, 2, 7000, 10000, 15      %Universitas Negeri Swasta
+|  5, C, 1, 2000, 3000, 5       %Universitas Sekitaran Sini
+|  6, C, 1, 22000, 7000, 30 |]; %Universitas Jarakjauh
 
 cat = 1;
 min_acc = 2;
