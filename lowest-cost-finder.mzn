@@ -55,17 +55,17 @@ informatics =
 |  2, 1, 1, 11600000, 18500000, 10000     %Universitas Esa Unggul
 |  3, 2, 1, 9000000, 14500000, 20000      %Universitas Trisakti
 |  4, 2, 1, 13000000, 10000,15000      %Universitas LSPR
-|  5, 2, 1, 6000000, 3000,5       %Universitas Al Azhar Indonesia
-|  6, 2, 1, 10000000, 20000000,30 |]; %Universitas Kristen Krida Wacana
+|  5, 2, 1, 6000000, 3000,5000       %Universitas Al Azhar Indonesia
+|  6, 2, 1, 10000000, 20000000,30000 |]; %Universitas Kristen Krida Wacana
 
 business = 
 %nama,acrdtn,ctgry,semester,u_pangkal,fare
 [| 1, 1, 1, 19300000, 38000000, 5000     %Universitas Bina Nusantara
 |  2, 1, 1, 12000000, 18500000, 10000    %Universitas Esa Unggul
 |  3, 1, 1, 9500000, 21500000, 20000     %Universitas Trisakti
-|  4, 2, 2, 13000000,10000,15      %Universitas LSPR
-|  5, 2, 1, 10000000, 3000,5       %Universitas Universitas Al Azhar Indonesia
-|  6, 1, 1, 12000000, 20000000,30 |]; %Universitas Kristen Krida Wacana
+|  4, 2, 2, 13000000,10000,15000      %Universitas LSPR
+|  5, 2, 1, 10000000, 3000,5000       %Universitas Universitas Al Azhar Indonesia
+|  6, 1, 1, 12000000, 20000000,30000 |]; %Universitas Kristen Krida Wacana
 
 doctor = 
 %nama,acrdtn,ctgry,semester,U_pangkal,fare
@@ -81,11 +81,11 @@ doctor =
 psychology = 
 %nama,acrdtn,ctgry,semester,U_pangkal,fare
 [| 1, 1, 1, 18700000, 38000000 ,5000       %Universitas Bina Nusantara
-|  2, 2, 1, 11600000, 18000000 ,10      %Universitas Esa Unggul
-|  3, 1, 1, 9000, 9000,30     %Universitas Trisakti
-|  4, 2, 1, 13000000,10000,15      %Universitas LSPR
-|  5, 2, 1, 12000000, 3000,5       %Universitas Universitas Al Azhar Indonesia
-|  6, 1, 1, 12000000, 20000000,30 |]; %Universitas Kristen Krida Wacana
+|  2, 2, 1, 11600000, 18000000 ,10000      %Universitas Esa Unggul
+|  3, 1, 1, 9000, 9000,30000     %Universitas Trisakti
+|  4, 2, 1, 13000000,10000,15000      %Universitas LSPR
+|  5, 2, 1, 12000000, 3000,5000       %Universitas Universitas Al Azhar Indonesia
+|  6, 1, 1, 12000000, 20000000,30000 |]; %Universitas Kristen Krida Wacana
 
 
 
