@@ -1,7 +1,7 @@
 %mencari kampus paling hemat
 include "table.mzn";
-int: min_acc;%akreditas, input '1' jika A,input '2' jika B,.. etc
-int: cat;%kategori univ, input '1' jika swasta,input '2' jika negri
+int: min_acc; %akreditas, input '1' jika A,input '2' jika B,.. etc
+int: cat; %kategori univ, input '1' jika swasta,input '2' jika negri
 int: max_price;%batas biaya persemester (k)
 int: max_fare;%batas ongkos perhari (k)
 
@@ -44,48 +44,48 @@ output ["University with the lowest cost that fit with your criteria is ",nama_u
 
 nu = 6;% jumlahnya ganti aja kalo mau tambahin
 unis = {1,2,3,4,5,6};
-nama_univ = ["Universitas Negeri Gunaguna","Universitas Jalanjalan","Institut Teknik Jawa","Universitas Negeri Swasta","Universitas Sekitaran Sini","Universitas Jarakjauh"];
+nama_univ = ["Universitas Bina Nusantara","Universitas Esa Unggul","Universitas Trisakti","Universitas LSPR","Universitas Al Azhar Indonesia","Universitas Kristen Krida Wacana"];
 
 % bawah ini aja isi datanya
 
 %database berdsarkan jurusan
 informatics = 
 %nama,acrdtn,ctgry,semester,uang_pangkal,fare
-[| 1, 3, 2, 6000, 6000,5       %Universitas Negeri Gunaguna
-|  2, 2, 1, 5000, 5000,10      %Universitas Jalan jalan
-|  3, 1, 1, 9000, 9000,30     %Institut Teknik Jawa
-|  4, 2, 2, 10000,10000,15      %Universitas Negeri Swasta
-|  5, 3, 1, 3000, 3000,5       %Universitas Sekitaran Sini
-|  6, 3, 1, 7000, 7000,30 |]; %Universitas Jarak jauh
+[| 1, 1, 1, 21300000, 38000000, 5       %Universitas Bina Nusantara
+|  2, 2, 1, 5000, 5000,10      %Universitas Esa Unggul
+|  3, 1, 1, 9000, 9000,30      %Universitas Trisakti
+|  4, 2, 2, 10000,10000,15      %Universitas LSPR
+|  5, 3, 1, 3000, 3000,5       %Universitas Al Azhar Indonesia
+|  6, 3, 1, 7000, 7000,30 |]; %Universitas Kristen Krida Wacana
 
 business = 
 %nama,acrdtn,ctgry,semester,u_pangkal,fare
-[| 1, 3, 2, 6000, 6000,5       %Universitas Negeri Gunaguna
-|  2, 2, 1, 5000, 5000,10      %Universitas Jalan jalan
-|  3, 1, 1, 9000, 9000,30     %Institut Teknik Jawa
-|  4, 2, 2, 10000,10000,15      %Universitas Negeri Swasta
-|  5, 3, 1, 3000, 3000,5       %Universitas Sekitaran Sini
-|  6, 3, 1, 7000, 7000,30 |]; %Universitas Jarak jauh
+[| 1, 3, 2, 19300000, 38000000, 5       %Universitas Bina Nusantara
+|  2, 2, 1, 5000, 5000,10      %Universitas Esa Unggul
+|  3, 1, 1, 9000, 9000,30     %Universitas Trisakti
+|  4, 2, 2, 10000,10000,15      %Universitas LSPR
+|  5, 3, 1, 3000, 3000,5       %Universitas Universitas Al Azhar Indonesia
+|  6, 3, 1, 7000, 7000,30 |]; %Universitas Kristen Krida Wacana
 
 doctor = 
 %nama,acrdtn,ctgry,semester,U_pangkal,fare
-[| 1, 3, 2, 6000, 6000,5       %Universitas Negeri Gunaguna
-|  2, 2, 1, 5000, 5000,10      %Universitas Jalan jalan
-|  3, 1, 1, 9000, 9000,30     %Institut Teknik Jawa
-|  4, 2, 2, 10000,10000,15      %Universitas Negeri Swasta
-|  5, 3, 1, 3000, 3000,5       %Universitas Sekitaran Sini
-|  6, 3, 1, 7000, 7000,30 |]; %Universitas Jarak jauh
+[| 1, 3, 2, 25200000, 38000000,5       %Universitas Bina Nusantara
+|  2, 2, 1, 5000, 5000,10      %Universitas Esa Unggul
+|  3, 1, 1, 9000, 9000,30     %Universitas Trisakti
+|  4, 2, 2, 10000,10000,15      %Universitas LSPR
+|  5, 3, 1, 3000, 3000,5       %Universitas Universitas Al Azhar Indonesia
+|  6, 3, 1, 7000, 7000,30 |]; %Universitas Kristen Krida Wacana
 
 
 
 psychology = 
 %nama,acrdtn,ctgry,semester,U_pangkal,fare
-[| 1, 3, 2, 6000, 6000,5       %Universitas Negeri Gunaguna
-|  2, 2, 1, 5000, 5000,10      %Universitas Jalan jalan
-|  3, 1, 1, 9000, 9000,30     %Institut Teknik Jawa
-|  4, 2, 2, 10000,10000,15      %Universitas Negeri Swasta
-|  5, 3, 1, 3000, 3000,5       %Universitas Sekitaran Sini
-|  6, 3, 1, 7000, 7000,30 |]; %Universitas Jarak jauh
+[| 1, 3, 2, 18700000, 38000000 ,5       %Universitas Bina Nusantara
+|  2, 2, 1, 5000, 5000,10      %Universitas Esa Unggul
+|  3, 1, 1, 9000, 9000,30     %Universitas Trisakti
+|  4, 2, 2, 10000,10000,15      %Universitas LSPR
+|  5, 3, 1, 3000, 3000,5       %Universitas Universitas Al Azhar Indonesia
+|  6, 3, 1, 7000, 7000,30 |]; %Universitas Kristen Krida Wacana
 
 
 
