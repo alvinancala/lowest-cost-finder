@@ -84,8 +84,8 @@ psychology =
 %nama,acrdtn,ctgry,semester,U_pangkal,fare
 [| 1, 1, 1, 18700000, 38000000 ,5000       %Universitas Bina Nusantara
 |  2, 2, 1, 11600000, 18000000 ,10000      %Universitas Esa Unggul
-|  4, 2, 1, 13000000,10000,15000      %Universitas LSPR
-|  5, 2, 1, 12000000, 3000,5000       %Universitas Universitas Al Azhar Indonesia
+|  4, 2, 1, 13000000,10000000,15000      %Universitas LSPR
+|  5, 2, 1, 12000000, 3000000,5000       %Universitas Universitas Al Azhar Indonesia
 |  6, 1, 1, 12000000, 20000000,30000 |]; %Universitas Kristen Krida Wacana
 
 
