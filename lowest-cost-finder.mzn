@@ -55,7 +55,7 @@ psychology_name = ["Universitas Bina Nusantara","Universitas Esa Unggul","Univer
 
 % bawah ini aja isi datanya
 
-%database berdsarkan jurusan
+%database berdasarkan jurusan
 informatics = 
 %nama,acrdtn,ctgry,semester,uang_pangkal,fare
 [| 1, 1, 1, 21300000, 38000000, 5000      %Universitas Bina Nusantara
