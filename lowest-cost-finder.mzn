@@ -2,24 +2,34 @@
 include "table.mzn";
 int: min_acc; %akreditas, input '1' jika A,input '2' jika B,.. etc
 int: cat; %kategori univ, input '1' jika swasta,input '2' jika negri
+int: area; 
 int: max_harga_semester;%batas biaya persemester (k)
 int: max_harga_ongkos;%batas ongkos perhari (k)
 
 set of UNIVERSITY: unis;
+set of UNIVERSITY: unis_informatika;
+set of UNIVERSITY: unis_sisteminformasi;
+set of UNIVERSITY: unis_sastrainggris;
 set of int: FEATURES = 1..7;%jumlah kolom
 int: nama = 1; int: akreditasi = 2; int: kategori = 3; int: daerah = 4; 
 int: harga_semester = 5; int: uang_pangkal = 6; int: ongkos = 7;
 
 int: jumlah_data; %jumlah row table
 int: jumlah_data_informatika;
+int: jumlah_data_sastrainggris;
+int: jumlah_data_sisteminformasi;
 
 set of int: UNIVERSITY = 1..jumlah_data;
 
 array[UNIVERSITY] of string: nama_univ;%set nama univ
 array[UNIVERSITY] of string: nama_informatika;
+array[UNIVERSITY] of string: nama_sisteminformasi;
+array[UNIVERSITY] of string: nama_sastrainggris;
 
 array[UNIVERSITY,FEATURES] of int: jurusan;%pilihan jurusan
 array[UNIVERSITY,FEATURES] of int: informatika; 
+array[UNIVERSITY,FEATURES] of int: sastrainggris; 
+array[UNIVERSITY,FEATURES] of int: sisteminformasi; 
 
 array[FEATURES] of var int: uni;
 var int: budget;
@@ -30,88 +40,43 @@ constraint uni[nama] in unis;
 constraint table(uni, jurusan);
 constraint uni[akreditasi] <= min_acc;
 constraint uni[kategori] = cat;
+constraint uni[daerah] = area;
 constraint uni[ongkos] <= max_harga_ongkos;
 constraint uni[harga_semester] <= max_harga_semester;
 
 constraint budget = uni[ongkos]*25*4+uni[harga_semester];
-constraint total_budget = (uni[ongkos]*25*4+uni[harga_semester])*8 + uni[uang_pangkal];
+constraint total_budget = (uni[ongkos]*21*4+uni[harga_semester])*8 + uni[uang_pangkal];
 
 solve minimize total_budget;
 
-%output nanti diganti lagi
-output ["University with the lowest cost that fit with your criteria is ",nama_univ[fix(uni[nama])],
-" with entry fee ",show(uni[uang_pangkal]),
+%output
+output ["universitas dengan harga terendaha adalah ",nama_univ[fix(uni[nama])],
+" dengan akreditasi ",show(uni[akreditasi]),
+" dengan kategori ",show(uni[kategori]),
+" dengan daerah ",show(uni[daerah]),
+" dengan uang pangkal",show(uni[uang_pangkal]),
+" dengan uang semster",show(uni[harga_semester]),
 ", expected budget/semester is ",show(budget), "\n and expected total payment until graduation with 8 semester is ",show(total_budget)];
 
-jumlah_data_informatika = 11;
-unis = {1,2,3,4,5,6,7,8,9,10,11};
+jumlah_data_informatika = 8;
+unis_informatika = {1,2,3,4,5,6,7,8};
 
 nama_informatika = 
-["UKRIDA","Universitas Esa Unggul","Universitas Bina Nusantara","Universitas Pelita Harapan","Universitas Tarumanagara","Universitas Gunadarma",
-"Universitas Mercu Buana","Universitas Muhammadiyah","Universitas Pancasila","Universitas Negri Jakarta","UI"];
+["UKRIDA","Esa Unggul","Binus","UPH","UNTAR","UPN","UNJ","UI"];
 informatika = 
 [| 1, 1, 1, 1, 20000000, 10000000, 10000      
 |  2, 1, 1, 2, 11600000, 18500000, 10000    
 |  3, 2, 1, 3, 9000000, 14500000, 20000      
-|  4, 2, 1, 4, 6000000, 3000,5000     
+|  4, 2, 1, 4, 6000000, 2000,5000     
 |  5, 2, 1, 5, 6000000, 3000,5000 
-|  6, 2, 1, 5, 6000000, 3000,5000 
-|  7, 2, 1, 5, 6000000, 3000,5000 
-|  8, 2, 1, 5, 6000000, 3000,5000 
 |  9, 2, 1, 5, 6000000, 3000,5000   
 |  10, 2, 1, 5, 6000000, 3000,5000 
 |  11, 2, 1, 6, 10000000, 20000000,30000 |]; 
 
-nama_akuntansi = 
-["UKRIDA","Universitas Trisakti","Universitas Bina Sarana Informatika","Universitas Pelita Harapan","Universitas Atma Jaya","Universitas Gunadarma",
-"Universitas Mercu Buana","Sekolah Tinggi Ilmu Ekonomi Indonesia Jakarta","Universitas Pancasila","Universitas Negri Jakarta","UI"];
-akuntansi = 
-[| 1, 1, 1, 2, 20000000, 12000000, 10000      
-|  2, 1, 1, 2, 21500000, 9500000, 10000    
-|  3, 2, 1, 5, 3600000, 2580000, 10000
-|  4, 1, 1, 7, 188000000, 19000000,10000     
-|  5, 1, 1, 5, 28000000, 7700000,10000 
-|  6, 2, 1, 1, 84800000, 13800000,10000 
-|  7, 1, 1, 2, 20000000, 11000000,10000 
-|  8, 1, 1, 2, 41200000, 8081250,10000 
-|  9, 1, 1, 5, 18000000, 16175000,10000 
-|  10, 1, 2, 3, 12000000, 6400000,10000 
-|  11, 1, 2, 6, 25000000, 12000000,10000 |];
-
-nama_manajemen = 
-["UKRIDA","Universitas Pelita Harapan","Universitas Mercu Buana","Sekolah Tinggi Ilmu Ekonomi Indonesia Jakarta","Universitas Pancasila",
-"Universitas Esa Unggul","Universitas Paramadina","Universitas Bina Nusantara","Universitas Bakrie","Universitas Negri Jakarta","UI"];
-manajemen = 
-[| 1, 1, 1, 2, 20000000, 12000000, 10000      
-|  2, 1, 1, 7, 45000000, 19550000, 10000    
-|  3, 1, 1, 2, 20000000, 2580000, 10000
-|  4, 1, 1, 2, 41200000, 8081250,10000     
-|  5, 1, 1, 5, 18000000, 16175000,10000 
-|  6, 1, 1, 2, 18100000, 11600000,10000 
-|  7, 1, 1, 5, 1500000, 9444000,10000 
-|  8, 1, 1, 2, 38000000, 18700000,10000 
-|  9, 1, 1, 5, 3000000, 15000000,10000 
-|  10, 1, 2, 3, 12000000, 6400000,10000 
-|  11, 1, 2, 6, 25000000, 12000000,10000 |];
-
-nama_tekniksipil = 
-["UKRIDA","Universitas Trisakti","Universitas Tarumanagara","Universitas Pelita Harapan","Universitas Gunadarma",
-"Universitas Mercu Buana","Universitas Bakrie","Universitas Pancasila","Universitas Kristen Indonesia","Universitas Negri Jakarta","zUI"];
-tekniksipil = 
-[| 1, 2, 1, 2, 20000000, 10000000, 10000      
-|  2, 1, 1, 2, 26000000, 11000000, 10000    
-|  3, 1, 1, 2, 25000000, 12500000, 10000
-|  4, 1, 1, 7, 131000000, 20000000,10000     
-|  5, 1, 1, 1, 22000000, 13000000,10000 
-|  6, 1, 1, 2, 20080000, 9000000,10000 
-|  7, 1, 1, 5, 11625000, 7600000,10000 
-|  8, 1, 1, 5, 30000000, 16000000,10000 
-|  9, 2, 1, 3, 24450000, 9150000,10000 
-|  10, 2, 2, 3, 12300000, 7400000,10000 
-|  11, 1, 2, 6, 50000000, 10000000,10000 |];
-
+jumlah_data_sisteminformasi = 8;
+unis_sisteminformasi = {1,2,3,4,5,6,7,8};
 nama_sisteminformasi=["UKRIDA","Universitas Tarumanagara","Universitas Pelita Harapan","Universitas Gunadarma","BINA SARANA INFORMATIKA",
-"UNIVERSITAS ESA UNGGUL","UNIVERSITAS ATMA JAYA","UNIVERSITAS MERCU BUANA","Universitas Trisakti","Universitas Islam Negeri Syarif Hidayatullah Jakarta"];
+"UNIVERSITAS ESA UNGGUL","UNIVERSITAS ATMA JAYA","Universitas Islam Negeri Syarif Hidayatullah Jakarta"];
 sisteminformasi = 
 [| 1, 2, 1, 2, 10000000, 20000000, 10000      
 |  2, 2, 1, 2, 8000000, 17000000, 10000    
@@ -120,10 +85,10 @@ sisteminformasi =
 |  5, 1, 1, 5, 2580000, 3600000,10000
 |  6, 2, 1, 2, 11600000, 18100000,10000
 |  7, 2, 1, 5, 4500000, 11000000,10000
-|  8, 2, 1, 2, 9360000, 20080000,10000
-|  8, 2, 1, 2, 9000000, 12500000,10000
-|  8, 1, 2, 7, 2400000, 7900000,10000|];
+|  10, 1, 2, 7, 2400000, 7900000,10000|];
 
+jumlah_data_sastrainggris = 8;
+unis_sastrainggris = {1,2,3,4,5,6,7,8};
 nama_sastrainggris =["UKRIDA","Universitas Bina Sarana Informatika","Universitas Gunadarma","Universitas Esa Unggul","Universitas Bunda Mulia",
 "Universitas Bina Nusantara","Universitas Kristen Indonesia","Universitas Islam Negeri Syarif Hidayatullah Jakarta"];
 sastrainggris = 
