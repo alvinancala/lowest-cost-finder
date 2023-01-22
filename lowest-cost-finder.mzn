@@ -2,98 +2,62 @@
 include "table.mzn";
 int: min_acc; %akreditas, input '1' jika A,input '2' jika B,.. etc
 int: cat; %kategori univ, input '1' jika swasta,input '2' jika negri
-int: max_price;%batas biaya persemester (k)
-int: max_fare;%batas ongkos perhari (k)
+int: max_harga_semester;%batas biaya persemester (k)
+int: max_harga_ongkos;%batas ongkos perhari (k)
 
 set of UNIVERSITY: unis;
-set of int: FEATURES = 1..6;%jumlah data row .... tambah aja angkanya kalo mau lebih
-int: name = 1; int: accreditation = 2; int: category = 3; int: semester_prc = 4; int: entry_fee = 5; int: fare = 6;
-int: nu; %jumlah pilihan univ
-set of int: UNIVERSITY = 1..nu;
-array[UNIVERSITY] of string: informatics_name;
-array[UNIVERSITY] of string: business_name;
-array[UNIVERSITY] of string: doctor_name;
-array[UNIVERSITY] of string: psychology_name;
+set of int: FEATURES = 1..7;%jumlah kolom
+int: nama = 1; int: akreditasi = 2; int: kategori = 3; int: daerah = 4; 
+int: harga_semester = 5; int: uang_pangkal = 6; int: ongkos = 7;
 
-array[UNIVERSITY,FEATURES] of int: major ;%pilihan jurusan
+int: jumlah_data; %jumlah row table
+int: jumlah_data_informatika;
 
-%database berdasrkan pilihan jurusan
-array[UNIVERSITY,FEATURES] of int: informatics; 
-array[UNIVERSITY,FEATURES] of int: business; 
-array[UNIVERSITY,FEATURES] of int: psychology; 
-array[UNIVERSITY,FEATURES] of int: doctor;
-array[UNIVERSITY,FEATURES] of int: economy;
-% ....  tambah lagi aja kalo bisa
+set of int: UNIVERSITY = 1..jumlah_data;
+
+array[UNIVERSITY] of string: nama_univ;%set nama univ
+array[UNIVERSITY] of string: nama_informatika;
+
+array[UNIVERSITY,FEATURES] of int: jurusan;%pilihan jurusan
+array[UNIVERSITY,FEATURES] of int: informatika; 
 
 array[FEATURES] of var int: uni;
 var int: budget;
 var int: total_budget;
 
-constraint uni[name] in unis;
-constraint table(uni, major);
-constraint uni[accreditation] <= min_acc;
-constraint uni[category] = cat;
-constraint uni[fare] <= max_fare;
-constraint uni[semester_prc] <= max_price;
+%constraint
+constraint uni[nama] in unis;
+constraint table(uni, jurusan);
+constraint uni[akreditasi] <= min_acc;
+constraint uni[kategori] = cat;
+constraint uni[ongkos] <= max_harga_ongkos;
+constraint uni[harga_semester] <= max_harga_semester;
 
-%perhitungan constraint dan output masih pending perkembangannya
-constraint budget = uni[fare]*25*4+uni[semester_prc];
-constraint total_budget = (uni[fare]*25*4+uni[semester_prc])*8 + uni[entry_fee];
-%solve satisfy;
-%solve maximize budget;
+constraint budget = uni[ongkos]*25*4+uni[harga_semester];
+constraint total_budget = (uni[ongkos]*25*4+uni[harga_semester])*8 + uni[uang_pangkal];
+
 solve minimize total_budget;
-output ["University with the lowest cost that fit with your criteria is ",nama_univ[fix(uni[name])],
-" with entry fee ",show(uni[entry_fee]),
-", expected budget/semester is ",show(budget), "\n and expected total payment until graduatin with 8 semester is ",show(total_budget)];
 
-nu = 6;% jumlahnya ganti aja kalo mau tambahin
-unis = {1,2,3,4,5,6};
-informatics_name = ["Universitas Bina Nusantara","Universitas Esa Unggul","Universitas Trisakti","Universitas Al Azhar Indonesia","Universitas Kristen Krida Wacana"];
-business_name = ["Universitas Bina Nusantara","Universitas Esa Unggul","Universitas Trisakti","Universitas LSPR","Universitas Al Azhar Indonesia","Universitas Kristen Krida Wacana"];
-doctor_name = ["Universitas Trisakti","Universitas Kristen Krida Wacana"];
-psychology_name = ["Universitas Bina Nusantara","Universitas Esa Unggul","Universitas Al Azhar Indonesia","Universitas Kristen Krida Wacana"];
-economy_name= ["Universitas Bina Nusantara","Universitas Esa Unggul","Universitas Al Azhar Indonesia"];
+%output nanti diganti lg
+output ["University with the lowest cost that fit with your criteria is ",nama_univ[fix(uni[nama])],
+" with entry fee ",show(uni[uang_pangkal]),
+", expected budget/semester is ",show(budget), "\n and expected total payment until graduation with 8 semester is ",show(total_budget)];
 
+jumlah_data_informatika = 11;
+unis = {1,2,3,4,5,6,7,8,9,10,11};
 
-% bawah ini aja isi datanya
-
-%database berdasarkan jurusan
-informatics = 
-%nama,acrdtn,ctgry,semester,uang_pangkal,fare
-[| 1, 1, 1, 21300000, 38000000, 5000      %Universitas Bina Nusantara
-|  2, 1, 1, 11600000, 18500000, 10000     %Universitas Esa Unggul
-|  3, 2, 1, 9000000, 14500000, 20000      %Universitas Trisakti
-|  5, 2, 1, 6000000, 3000,5000       %Universitas Al Azhar Indonesia
-|  6, 2, 1, 10000000, 20000000,30000 |]; %Universitas Kristen Krida Wacana
-
-business = 
-%nama,acrdtn,ctgry,semester,u_pangkal,fare
-[| 1, 1, 1, 19300000, 38000000, 5000     %Universitas Bina Nusantara
-|  2, 1, 1, 12000000, 18500000, 10000    %Universitas Esa Unggul
-|  3, 1, 1, 9500000, 21500000, 20000     %Universitas Trisakti
-|  4, 2, 2, 13500000,10000000,15000      %Universitas LSPR
-|  5, 2, 1, 10000000, 3000000,5000       %Universitas Universitas Al Azhar Indonesia
-|  6, 1, 1, 12000000, 20000000,30000 |]; %Universitas Kristen Krida Wacana
-
-doctor = 
-%nama,acrdtn,ctgry,semester,U_pangkal,fare
-[|  3, 1, 1, 25500000, 350000000, 20000     %Universitas Trisakti
-|  6, 2, 1, 40000000, 350000000,30 |]; %Universitas Kristen Krida Wacana
-
-
-
-psychology = 
-%nama,acrdtn,ctgry,semester,U_pangkal,fare
-[| 1, 1, 1, 18700000, 38000000 ,5000       %Universitas Bina Nusantara
-|  2, 2, 1, 11600000, 18000000 ,10000      %Universitas Esa Unggul
-|  4, 2, 1, 13000000,10000000,15000      %Universitas LSPR
-|  5, 2, 1, 12000000, 3000000,5000       %Universitas Universitas Al Azhar Indonesia
-|  6, 1, 1, 12000000, 20000000,30000 |]; %Universitas Kristen Krida Wacana
-
-
-economy =
-%nama,acrdtn,ctgry,semester,U_pangkal,fare
-[| 1, 1, 1, 19300000, 35000000 ,5000       %Universitas Bina Nusantara
-|  2, 2, 1, 12000000, 18500000 ,10000      %Universitas Esa Unggul
-|  4, 2, 1, 13000000, 24500000 ,15000      %Universitas LSPR
-|  5, 2, 1, 19800000, 10500000 ,5000 |];   %Universitas Universitas Al Azhar Indonesia
+nama_informatika = 
+["UKRIDA","Esa Unggul","Binus","UPH","UNTAR","Gundar",
+"UMB","UHAMKA","UPN","UNJ","UI"];
+informatika = 
+[| 1, 1, 1, 1, 20000000, 10000000, 10000      
+|  2, 1, 1, 2, 11600000, 18500000, 10000    
+|  3, 2, 1, 3, 9000000, 14500000, 20000      
+|  4, 2, 1, 4, 6000000, 3000,5000     
+|  5, 2, 1, 5, 6000000, 3000,5000 
+|  6, 2, 1, 5, 6000000, 3000,5000 
+|  7, 2, 1, 5, 6000000, 3000,5000 
+|  8, 2, 1, 5, 6000000, 3000,5000 
+|  9, 2, 1, 5, 6000000, 3000,5000   
+|  10, 2, 1, 5, 6000000, 3000,5000 
+|  11, 2, 1, 6, 10000000, 20000000,30000 |]; 
