@@ -38,7 +38,7 @@ constraint total_budget = (uni[ongkos]*25*4+uni[harga_semester])*8 + uni[uang_pa
 
 solve minimize total_budget;
 
-%output nanti diganti lg
+%output nanti diganti lagi
 output ["University with the lowest cost that fit with your criteria is ",nama_univ[fix(uni[nama])],
 " with entry fee ",show(uni[uang_pangkal]),
 ", expected budget/semester is ",show(budget), "\n and expected total payment until graduation with 8 semester is ",show(total_budget)];
