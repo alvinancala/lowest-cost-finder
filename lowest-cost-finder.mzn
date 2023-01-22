@@ -47,8 +47,8 @@ jumlah_data_informatika = 11;
 unis = {1,2,3,4,5,6,7,8,9,10,11};
 
 nama_informatika = 
-["UKRIDA","Esa Unggul","Binus","UPH","UNTAR","Gundar",
-"UMB","UHAMKA","UPN","UNJ","UI"];
+["UKRIDA","Universitas Esa Unggul","Universitas Bina Nusantara","Universitas Pelita Harapan","Universitas Tarumanagara","Universitas Gunadarma",
+"Universitas Mercu Buana","Universitas Muhammadiyah","Universitas Pancasila","Universitas Negri Jakarta","UI"];
 informatika = 
 [| 1, 1, 1, 1, 20000000, 10000000, 10000      
 |  2, 1, 1, 2, 11600000, 18500000, 10000    
@@ -61,3 +61,77 @@ informatika =
 |  9, 2, 1, 5, 6000000, 3000,5000   
 |  10, 2, 1, 5, 6000000, 3000,5000 
 |  11, 2, 1, 6, 10000000, 20000000,30000 |]; 
+
+nama_akuntansi = 
+["UKRIDA","Universitas Trisakti","Universitas Bina Sarana Informatika","Universitas Pelita Harapan","Universitas Atma Jaya","Universitas Gunadarma",
+"Universitas Mercu Buana","Sekolah Tinggi Ilmu Ekonomi Indonesia Jakarta","Universitas Pancasila","Universitas Negri Jakarta","UI"];
+akuntansi = 
+[| 1, 1, 1, 2, 20000000, 12000000, 10000      
+|  2, 1, 1, 2, 21500000, 9500000, 10000    
+|  3, 2, 1, 5, 3600000, 2580000, 10000
+|  4, 1, 1, 7, 188000000, 19000000,10000     
+|  5, 1, 1, 5, 28000000, 7700000,10000 
+|  6, 2, 1, 1, 84800000, 13800000,10000 
+|  7, 1, 1, 2, 20000000, 11000000,10000 
+|  8, 1, 1, 2, 41200000, 8081250,10000 
+|  9, 1, 1, 5, 18000000, 16175000,10000 
+|  10, 1, 2, 3, 12000000, 6400000,10000 
+|  11, 1, 2, 6, 25000000, 12000000,10000 |];
+
+nama_manajemen = 
+["UKRIDA","Universitas Pelita Harapan","Universitas Mercu Buana","Sekolah Tinggi Ilmu Ekonomi Indonesia Jakarta","Universitas Pancasila",
+"Universitas Esa Unggul","Universitas Paramadina","Universitas Bina Nusantara","Universitas Bakrie","Universitas Negri Jakarta","UI"];
+manajemen = 
+[| 1, 1, 1, 2, 20000000, 12000000, 10000      
+|  2, 1, 1, 7, 45000000, 19550000, 10000    
+|  3, 1, 1, 2, 20000000, 2580000, 10000
+|  4, 1, 1, 2, 41200000, 8081250,10000     
+|  5, 1, 1, 5, 18000000, 16175000,10000 
+|  6, 1, 1, 2, 18100000, 11600000,10000 
+|  7, 1, 1, 5, 1500000, 9444000,10000 
+|  8, 1, 1, 2, 38000000, 18700000,10000 
+|  9, 1, 1, 5, 3000000, 15000000,10000 
+|  10, 1, 2, 3, 12000000, 6400000,10000 
+|  11, 1, 2, 6, 25000000, 12000000,10000 |];
+
+nama_tekniksipil = 
+["UKRIDA","Universitas Trisakti","Universitas Tarumanagara","Universitas Pelita Harapan","Universitas Gunadarma",
+"Universitas Mercu Buana","Universitas Bakrie","Universitas Pancasila","Universitas Kristen Indonesia","Universitas Negri Jakarta","zUI"];
+tekniksipil = 
+[| 1, 2, 1, 2, 20000000, 10000000, 10000      
+|  2, 1, 1, 2, 26000000, 11000000, 10000    
+|  3, 1, 1, 2, 25000000, 12500000, 10000
+|  4, 1, 1, 7, 131000000, 20000000,10000     
+|  5, 1, 1, 1, 22000000, 13000000,10000 
+|  6, 1, 1, 2, 20080000, 9000000,10000 
+|  7, 1, 1, 5, 11625000, 7600000,10000 
+|  8, 1, 1, 5, 30000000, 16000000,10000 
+|  9, 2, 1, 3, 24450000, 9150000,10000 
+|  10, 2, 2, 3, 12300000, 7400000,10000 
+|  11, 1, 2, 6, 50000000, 10000000,10000 |];
+
+nama_sisteminformasi=["UKRIDA","Universitas Tarumanagara","Universitas Pelita Harapan","Universitas Gunadarma","BINA SARANA INFORMATIKA",
+"UNIVERSITAS ESA UNGGUL","UNIVERSITAS ATMA JAYA","UNIVERSITAS MERCU BUANA","Universitas Trisakti","Universitas Islam Negeri Syarif Hidayatullah Jakarta"];
+sisteminformasi = 
+[| 1, 2, 1, 2, 10000000, 20000000, 10000      
+|  2, 2, 1, 2, 8000000, 17000000, 10000    
+|  3, 2, 1, 7, 20000000, 131000000, 10000      
+|  4, 2, 1, 1, 15800000, 94800000,10000
+|  5, 1, 1, 5, 2580000, 3600000,10000
+|  6, 2, 1, 2, 11600000, 18100000,10000
+|  7, 2, 1, 5, 4500000, 11000000,10000
+|  8, 2, 1, 2, 9360000, 20080000,10000
+|  8, 2, 1, 2, 9000000, 12500000,10000
+|  8, 1, 2, 7, 2400000, 7900000,10000|];
+
+nama_sastrainggris =["UKRIDA","Universitas Bina Sarana Informatika","Universitas Gunadarma","Universitas Esa Unggul","Universitas Bunda Mulia",
+"Universitas Bina Nusantara","Universitas Kristen Indonesia","Universitas Islam Negeri Syarif Hidayatullah Jakarta"];
+sastrainggris = 
+[| 1, 2, 1, 2, 10000000, 20000000, 10000      
+|  2, 2, 1, 5, 2580000, 3600000, 10000    
+|  3, 2, 1, 3, 13600000, 82800000, 10000     
+|  4, 2, 1, 2, 11600000, 18100000,10000
+|  5, 2, 1, 5, 4500000, 19900000,10000
+|  6, 1, 1, 4, 18700000, 38000000,10000
+|  7, 2, 1, 2, 11100000, 17950000,10000
+|  8, 1, 2, 7, 6400000, 2400000,10000|];
