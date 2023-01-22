@@ -2,6 +2,8 @@
 
 cat = 1;
 min_acc = 3;
-max_price = 10000;
-max_fare = 50;
-major = informatics;
+max_harga_semester = 10000000;
+max_harga_ongkos = 100000;
+jurusan = informatika;
+nama_univ = nama_informatika;
+jumlah_data= jumlah_data_informatika;
