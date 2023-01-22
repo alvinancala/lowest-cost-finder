@@ -1,11 +1,9 @@
 %input
 
 cat = 1;
-area=4;
+area=5;
 min_acc = 3;
 max_harga_semester = 10000000;
 max_harga_ongkos = 100000;
 jurusan = informatika;
 nama_univ = nama_informatika;
-jumlah_data= jumlah_data_informatika;
-unis=unis_informatika;
