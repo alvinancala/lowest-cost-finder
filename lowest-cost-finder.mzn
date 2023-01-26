@@ -1,4 +1,4 @@
-%mencari kampus paling hemat
+%mencari' kampus paling hemat
 include "table.mzn";
 int: min_acc; %akreditas, input '1' jika A,input '2' jika B,.. etc
 int: cat; %kategori univ, input '1' jika swasta,input '2' jika negri
